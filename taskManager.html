@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Task Manager" icon-name="standard:task">
+        <!-- Task Creation Form -->
+        <div class="slds-m-bottom_medium">
+            <lightning-input 
+                label="Task Name" 
+                type="text" 
+                value={newTask.Name} 
+                onchange={handleInputChange} 
+                data-field="Name">
+            </lightning-input>
+            <lightning-textarea 
+                label="Description" 
+                value={newTask.Description__c} 
+                onchange={handleInputChange} 
+                data-field="Description__c">
+            </lightning-textarea>
+            <lightning-input 
+                label="Due Date" 
+                type="date" 
+                value={newTask.Due_Date__c} 
+                onchange={handleInputChange} 
+                data-field="Due_Date__c">
+            </lightning-input>
+            <lightning-combobox 
+                label="Priority" 
+                options={priorityOptions} 
+                value={newTask.Priority__c} 
+                onchange={handleInputChange} 
+                data-field="Priority__c">
+            </lightning-combobox>
+            <lightning-combobox 
+                label="Status" 
+                options={StatusOptions} 
+                value={newTask.Status__c} 
+                onchange={handleInputChange} 
+                data-field="Status__c">
+            </lightning-combobox>
+            <lightning-button 
+                label="Create Task" 
+                variant="brand" 
+                onclick={handleCreateTask}>
+            </lightning-button>
+        </div>
+
+        <!-- Task Data Table -->
+        <lightning-datatable 
+            key-field="Id" 
+            data={tasks} 
+            columns={columns} 
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </lightning-card>
+</template>

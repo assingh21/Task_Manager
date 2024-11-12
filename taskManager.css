@@ -1,0 +1,97 @@
+/* General form container */
+.form-container {
+    max-width: 800px; /* Limit form width for better usability */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    border-radius: 10px;
+    background: #f9f9f9; /* Subtle background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add depth */
+}
+
+/* Layout grid for the form */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Spacing between fields */
+}
+
+/* Input fields styling */
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Slight depth inside input */
+    transition: border-color 0.3s ease;
+}
+
+/* Input fields focus state */
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    border-color: #0070d2; /* Salesforce blue for focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 112, 210, 0.3); /* Glowing effect */
+}
+
+/* Labels for inputs */
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333333;
+    display: block;
+}
+
+/* Textarea styling */
+.form-container textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px;
+}
+
+/* Button styling */
+.form-container .form-button {
+    grid-column: span 2; /* Span button across two columns in the grid */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0070d2;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover and active states */
+.form-container .form-button:hover {
+    background-color: #005fb3; /* Darker blue */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.form-container .form-button:active {
+    background-color: #003e75;
+    transform: scale(0.98); 
+}
+
+
+.validation-message {
+    color: #e63946; 
+    font-size: 0.875rem; 
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+    }
+    .form-button {
+        grid-column: span 1; 
+    }
+}
